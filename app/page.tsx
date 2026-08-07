@@ -244,7 +244,7 @@ export default function Home() {
 
       <section className="archive" id="archive">
         <div className="archive__heading" data-reveal>
-          <div><p className="section-label">02 — The Living Library</p><h2>Open a<br />conversation.</h2></div>
+          <div><p className="section-label">02 — The Living Library</p><h2>Join the<br />conversation.</h2></div>
           <p>Seven entries. Seven lives. One growing archive of ideas worth carrying forward.</p>
         </div>
 

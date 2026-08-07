@@ -268,9 +268,9 @@ img { display: block; max-width: 100%; }
   flex-direction: column;
   color: rgba(255,255,255,.17);
   font-family: var(--font-geist-sans), Arial, sans-serif;
-  font-size: clamp(88px, 12.5vw, 240px);
+  font-size: clamp(80px, 10.5vw, 200px);
   font-weight: 800;
-  letter-spacing: -.085em;
+  letter-spacing: -.050em;
   line-height: .76;
   text-transform: uppercase;
   white-space: nowrap;

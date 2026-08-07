@@ -520,7 +520,7 @@ img { display: block; max-width: 100%; }
   .hero__back-title { top: 19%; left: 16px; right: 16px; font-size: clamp(50px, 14.5vw, 62px); line-height: .8; letter-spacing: -.025em;}
   .hero__back-title span { margin: 0 0 .06em 18vw; line-height: 1;}
   .hero__back-title strong { line-height: .8; letter-spacing: -.025em;}
-  .hero__subject--primary { right: -15vw; bottom: 0; width: 145vw; }
+  .hero__subject--primary { right: -18vw; bottom: 0; width: 150vw; }
   .hero__subject--echo { display: none; }
   .hero__copy { top: 13%; left: 20px; width: calc(100% - 40px); }
   .kicker { max-width: 290px; margin-bottom: 18px; font-size: 7px; line-height: 1.65; }

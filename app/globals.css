@@ -410,7 +410,7 @@ img { display: block; max-width: 100%; }
   max-width: 100%;
   object-fit: contain;
   object-position: center;
-  filter: grayscale(.82) contrast(1.08);
+  filter: grayscale(0) saturate(1.08) contrast(1.05);
   transition: filter .55s ease, transform .8s ease;
 }
 .featured__visual:hover img { filter: grayscale(.12) contrast(1.05); transform: scale(1.02); }

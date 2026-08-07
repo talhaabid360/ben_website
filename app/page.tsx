@@ -72,7 +72,7 @@ export default function Home() {
             .to(".hero__scroll-cue", { autoAlpha: 0, duration: 0.1 }, 0.14)
             .to(".hero__back-title", { yPercent: -42, scale: 0.96, autoAlpha: 0, duration: 0.18 }, 0.2)
             .to(".hero__subject--primary", { yPercent: 28, scale: 1.03, autoAlpha: 0, duration: 0.2 }, 0.2)
-            .fromTo(".hero__copy", { y: 80, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.16, ease: "power2.out" }, 0.42)
+            .fromTo(".hero__copy", { y: 80, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.27, ease: "power2.out" }, 0.39)
             .to(".hero__copy", { yPercent: -20, autoAlpha: 0, duration: 0.12 }, 0.75)
             .fromTo(".hero__interlude", { clipPath: "inset(100% 0 0 0)" }, { clipPath: "inset(0% 0 0 0)", duration: 0.2 }, 0.8)
             .fromTo(".hero__interlude-copy", { y: 90, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.12, ease: "power2.out" }, 0.88);

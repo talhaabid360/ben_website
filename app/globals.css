@@ -538,7 +538,7 @@ img { display: block; max-width: 100%; }
   .hero__halo { right: -44vw; bottom: 6vh; width: 125vw; }
   .hero__back-title { top: 19%; left: 10px; right: 10px; font-size: clamp(58px, 17.5vw, 76px); line-height: .8; letter-spacing: -.025em;}
   .hero__back-title span { margin: 0 0 .06em 18vw; line-height: 1;}
-  .hero__back-title strong {display: block; width: 100%; line-height: .8; letter-spacing: -.025em; white-space: nowrap; transform: scaleX(.90); transform-origin: center;}
+  .hero__back-title strong {display: block; width: 100%; line-height: .8; letter-spacing: -.025em; white-space: nowrap; transform: scaleX(.86); transform-origin: center;}
   .hero__subject--primary { right: -18vw; bottom: 0; width: 150vw; }
   .hero__subject--echo { display: none; }
   .hero__copy { top: 13%; left: 20px; width: calc(100% - 40px); }

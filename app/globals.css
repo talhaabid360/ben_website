@@ -413,7 +413,7 @@ img { display: block; max-width: 100%; }
   filter: grayscale(0) saturate(1.08) contrast(1.05);
   transition: filter .55s ease, transform .8s ease;
 }
-.featured__visual:hover img { filter: grayscale(.12) contrast(1.05); transform: scale(1.02); }
+.featured__visual:hover img {filter: grayscale(0) saturate(1.12) contrast(1.04); transform: scale(1.02);}
 .play { position: absolute; z-index: 3; top: 50%; left: 50%; display: grid; place-items: center; width: 94px; aspect-ratio: 1; border: 1px solid rgba(255,255,255,.75); border-radius: 50%; background: rgba(0,0,0,.48); backdrop-filter: blur(8px); font: 600 9px/1 var(--font-geist-mono), monospace; letter-spacing: .15em; text-transform: uppercase; transform: translate(-50%,-50%); transition: background .25s, color .25s; }
 .featured__visual:hover .play { background: #fff; color: #000; }
 .featured__entry { position: absolute; z-index: 3; top: 28px; left: 28px; padding: 12px 14px; background: rgba(0,0,0,.72); font: 600 8px/1 var(--font-geist-mono), monospace; letter-spacing: .15em; text-transform: uppercase; }

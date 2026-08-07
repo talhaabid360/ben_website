@@ -159,7 +159,7 @@ export default function Home() {
 
       <header className="site-header">
         <a className="brand" href="#home" aria-label="To My Sons and Daughters home">
-          <img className="brand__logo" src="/media/tmsd-logo.svg" alt="" />
+          <img className="brand__logo" src="/media/tmsd-logo2.svg" alt="" />
           <span className="brand__name">To My Sons &amp; Daughters</span>
         </a>
         <nav className="desktop-nav" aria-label="Primary navigation">

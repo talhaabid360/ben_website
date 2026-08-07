@@ -570,7 +570,7 @@ img { display: block; max-width: 100%; }
 
   .archive { padding: 100px 20px; }
   .archive__heading { gap: 28px; padding-bottom: 38px; }
-  .archive__heading h2 { font-size: clamp(54px, 14.5vw, 74px); }
+  .archive__heading h2 {width: 100%; max-width: 100%; font-size: clamp(36px, 11.2vw, 58px); line-height: .86; letter-spacing: -.055em;}
   .archive__heading > p { font-size: 17px; }
   .archive__tools { padding: 26px 0 42px; }
   .episode-grid { grid-template-columns: 1fr; gap: 50px; }

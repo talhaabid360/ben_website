@@ -579,7 +579,7 @@ img { display: block; max-width: 100%; }
 
   .host { gap: 65px; padding: 100px 20px; }
   .host__media { width: 100%; min-height: 116vw; }
-  .host__media img { right: -72%; bottom: -4%; width: 255%; }
+  .host__media img { right: -38%; bottom: -1%; width: 180%; }
   .host__media > span { right: 14px; bottom: 14px; width: 104px; }
   .host__copy h2 { font-size: clamp(42px, 11.5vw, 56px); }
   .host__copy > p { font-size: 17px; }

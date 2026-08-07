@@ -460,7 +460,7 @@ img { display: block; max-width: 100%; }
 .host > * { position: relative; z-index: 2; }
 .host__media { position: relative; min-height: 700px; overflow: hidden; background: #050505; }
 .host__halo { position: absolute; top: 13%; left: 8%; width: 84%; aspect-ratio: 1; border: 1px solid rgba(255,255,255,.3); border-radius: 50%; box-shadow: 0 0 90px rgba(255,255,255,.12); }
-.host__media img { position: absolute; right: -46%; bottom: -4%; width: 190%; max-width: none; filter: grayscale(.25) contrast(1.07); will-change: transform; }
+.host__media img { position: absolute; right: -40%; bottom: -1%; width: 175%; max-width: none; filter: grayscale(.25) contrast(1.07); will-change: transform; }
 .host__media > span { position: absolute; z-index: 3; right: 22px; bottom: 22px; display: flex; align-items: center; flex-direction: column; justify-content: center; width: 122px; aspect-ratio: 1; padding: 13px; border: 1px solid rgba(255,255,255,.7); border-radius: 50%; color: #fff; text-align: center; font: 600 7px/1.35 var(--font-geist-mono), monospace; letter-spacing: .1em; text-transform: uppercase; }
 .host__media > span strong { font: 400 31px/1 Georgia, serif; }
 .host__copy h2 { margin: 0; font: 400 clamp(46px, 4.6vw, 88px)/.94 Georgia, serif; letter-spacing: -.055em; }

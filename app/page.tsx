@@ -123,6 +123,32 @@ export default function Home() {
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
+  useEffect(() => {
+  const updateScrollProgress = () => {
+    const scrollableHeight =
+      document.documentElement.scrollHeight - window.innerHeight;
+
+    const progress =
+      scrollableHeight > 0 ? window.scrollY / scrollableHeight : 0;
+
+    document.documentElement.style.setProperty(
+      "--scroll-progress",
+      String(progress)
+    );
+  };
+
+    updateScrollProgress();
+
+    window.addEventListener("scroll", updateScrollProgress, { passive: true });
+    window.addEventListener("resize", updateScrollProgress);
+
+    return () => {
+      window.removeEventListener("scroll", updateScrollProgress);
+      window.removeEventListener("resize", updateScrollProgress);
+    };
+  }, []);
+
+
   const filteredEpisodes = useMemo(() => {
     const search = query.trim().toLowerCase();
     return episodes.filter((episode) => {

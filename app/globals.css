@@ -9,6 +9,7 @@
   --gray: #a5a5a0;
   --line-dark: rgba(255, 255, 255, .16);
   --line-light: rgba(0, 0, 0, .18);
+  --scroll-progress: 0;
 }
 
 * { box-sizing: border-box; }

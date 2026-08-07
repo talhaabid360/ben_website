@@ -271,7 +271,7 @@ export default function Home() {
       <section className="host" id="host">
         <div className="host__media" data-reveal>
           <div className="host__halo" aria-hidden="true" />
-          <img src="/media/ben-cover.webp" alt="Ben Swann, host of To My Sons and Daughters" data-parallax="6" />
+          <img src="/media/ben-cover.webp" alt="Ben Swann, host of To My Sons and Daughters" data-parallax="2" />
           <span><strong>20+</strong> Years pursuing truth</span>
         </div>
         <div className="host__copy" data-reveal>

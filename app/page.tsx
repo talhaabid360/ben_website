@@ -34,7 +34,7 @@ export default function Home() {
 
   useEffect(() => {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const timer = window.setTimeout(() => setReady(true), reducedMotion ? 50 : 2700);
+    const timer = window.setTimeout(() => setReady(true), reducedMotion ? 50 : 3600);
 
     const observer = new IntersectionObserver(
       (entries) => entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add("is-visible")),

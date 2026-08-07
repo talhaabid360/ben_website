@@ -507,7 +507,7 @@ img { display: block; max-width: 100%; }
   .purpose__heading h2 { margin-top: 10vh; }
   .purpose__intro { justify-self: end; }
   .featured { grid-template-columns: 1fr; }
-  .featured__visual { min-height: 60vw; }
+  .featured__visual {min-height: 0; aspect-ratio: 16 / 9;}
   .featured__image::after { background: linear-gradient(0deg, #050505, transparent 42%); }
   .archive__heading { align-items: flex-start; flex-direction: column; }
   .archive__tools { align-items: flex-start; flex-direction: column; }

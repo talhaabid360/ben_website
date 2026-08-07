@@ -513,9 +513,9 @@ img { display: block; max-width: 100%; }
   .hero { min-height: 600px; }
   .hero__grid { background: linear-gradient(180deg, rgba(0,0,0,.02), #050505 95%), repeating-linear-gradient(90deg, transparent 0 calc(25vw - 1px), rgba(255,255,255,.055) calc(25vw - 1px) 25vw), #050505; }
   .hero__halo { right: -44vw; bottom: 6vh; width: 125vw; }
-  .hero__back-title { top: 19%; left: 11px; font-size: clamp(70px, 22vw, 112px); line-height: .77; }
-  .hero__back-title span { margin-left: 20vw; }
-  .hero__back-title strong { line-height: .77; }
+  .hero__back-title { top: 19%; left: 16px; right: 16px; font-size: clamp(50px, 14.5vw, 62px); line-height: .8; letter-spacing: -.025em;}
+  .hero__back-title span { margin: 0 0 .06em 18vw; line-height: 1;}
+  .hero__back-title strong { line-height: .8; letter-spacing: -.025em;}
   .hero__subject--primary { right: -15vw; bottom: 0; width: 145vw; }
   .hero__subject--echo { display: none; }
   .hero__copy { top: 13%; left: 20px; width: calc(100% - 40px); }

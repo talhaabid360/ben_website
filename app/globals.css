@@ -290,7 +290,7 @@ img { display: block; max-width: 100%; }
   user-select: none;
   will-change: transform, opacity;
 }
-.hero__subject--primary { z-index: 4; right: -5vw; bottom: -3vw; width: min(82vw, 1420px); filter: contrast(1.06) saturate(.78); }
+.hero__subject--primary { z-index: 4; right: -7vw; bottom: -4vw; width: min(87vw, 1480px); filter: contrast(1.08) saturate(.78); }
 
 .hero__copy {
   position: absolute;

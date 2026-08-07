@@ -561,7 +561,8 @@ img { display: block; max-width: 100%; }
   .principles article, .principles article + article { padding: 25px 0 30px; border-right: 0; border-bottom: 1px solid var(--line-light); }
   .principles h3 { margin-top: 28px; font-size: 31px; }
 
-  .featured__visual { min-height: 74vw; }
+  .featured__visual { min-height: 0 !important; aspect-ratio: 16 / 9; }
+  .featured__image {transform: none !important;}
   .featured__entry { top: 14px; left: 14px; }
   .play { width: 74px; }
   .featured__copy { padding: 64px 20px 82px; }

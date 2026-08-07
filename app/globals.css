@@ -536,8 +536,8 @@ img { display: block; max-width: 100%; }
   .hero { min-height: 600px; }
   .hero__grid { background: linear-gradient(180deg, rgba(0,0,0,.02), #050505 95%), repeating-linear-gradient(90deg, transparent 0 calc(25vw - 1px), rgba(255,255,255,.055) calc(25vw - 1px) 25vw), #050505; }
   .hero__halo { right: -44vw; bottom: 6vh; width: 125vw; }
-  .hero__back-title { top: 19%; left: 10px; right: 10px; font-size: clamp(58px, 17.5vw, 76px); line-height: .8; letter-spacing: -.025em;}
-  .hero__back-title span { margin: 0 0 .06em 18vw; line-height: 1;}
+  .hero__back-title { top: 19%; left: -5px; right: 25px; font-size: clamp(58px, 17.5vw, 76px); line-height: .8; letter-spacing: -.025em;}
+  .hero__back-title span { margin: 0 0 .06em 15vw; line-height: 1;}
   .hero__back-title strong {display: block; width: 100%; line-height: .8; letter-spacing: -.025em; white-space: nowrap; transform: scaleX(.86); transform-origin: center;}
   .hero__subject--primary { right: -18vw; bottom: 0; width: 150vw; }
   .hero__subject--echo { display: none; }

@@ -288,8 +288,8 @@ export default function Home() {
         <p className="section-label">04 — Voices in the Archive</p>
         <h2 id="voices-title" data-reveal>People who have<br />lived the lesson.</h2>
         <div className="marquee" aria-hidden="true">
-          <div>PHIL DARU · CAITLIN SINCLAIR · THE LOLLIS · OLIVIA AUDREY · DENIS &amp; MARIANNE BEAUSEJOUR · JOHN KIRIAKOU · DR. GINA LOUDON ·&nbsp;</div>
-          <div>PHIL DARU · CAITLIN SINCLAIR · THE LOLLIS · OLIVIA AUDREY · DENIS &amp; MARIANNE BEAUSEJOUR · JOHN KIRIAKOU · DR. GINA LOUDON ·&nbsp;</div>
+        <div>PHIL DARU&thinsp;·&thinsp;CAITLIN SINCLAIR&thinsp;·&thinsp;THE LOLLIS&thinsp;·&thinsp;OLIVIA AUDREY&thinsp;·&thinsp;DENIS &amp; MARIANNE BEAUSEJOUR&thinsp;·&thinsp;JOHN KIRIAKOU&thinsp;·&thinsp;DR. GINA LOUDON&thinsp;·&thinsp;</div>
+        <div>PHIL DARU&thinsp;·&thinsp;CAITLIN SINCLAIR&thinsp;·&thinsp;THE LOLLIS&thinsp;·&thinsp;OLIVIA AUDREY&thinsp;·&thinsp;DENIS &amp; MARIANNE BEAUSEJOUR&thinsp;·&thinsp;JOHN KIRIAKOU&thinsp;·&thinsp;DR. GINA LOUDON&thinsp;·&thinsp;</div>
         </div>
       </section>
 

@@ -470,7 +470,7 @@ img { display: block; max-width: 100%; }
 
 .voices { padding: 130px 0; overflow: hidden; background: #050505; text-align: center; }
 .voices h2 { max-width: 1120px; margin: 0 auto 90px; padding: 0 22px; font: 400 clamp(64px, 7.4vw, 142px)/.82 Georgia, serif; letter-spacing: -.07em; text-transform: uppercase; }
-.marquee { display: flex; width: max-content; border-top: 1px solid var(--line-dark); border-bottom: 1px solid var(--line-dark); color: #fff; font: 400 clamp(52px, 6.7vw, 128px)/.92 Georgia, serif; white-space: nowrap; text-transform: uppercase; }
+.marquee { display: flex; width: max-content; border-top: 1px solid var(--line-dark); border-bottom: 1px solid var(--line-dark); color: #EED46E; font: 400 clamp(52px, 6.7vw, 128px)/.92 Georgia, serif; white-space: nowrap; text-transform: uppercase; }
 .marquee div { padding: 24px 0 28px; animation: marquee 46s linear infinite; }
 @keyframes marquee { to { transform: translateX(-100%); } }
 

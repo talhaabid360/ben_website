@@ -172,6 +172,7 @@ export default function Home() {
 
   return (
     <main className={ready ? "site-ready" : ""}>
+      <div className="scroll-progress" aria-hidden="true" />
       <div className={`intro ${ready ? "intro--complete" : ""}`} aria-hidden="true">
         <div className="intro__panel intro__panel--top" />
         <div className="intro__panel intro__panel--bottom" />

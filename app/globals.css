@@ -541,7 +541,7 @@ img { display: block; max-width: 100%; }
   .hero__back-title strong {display: block; width: 100%; line-height: .8; letter-spacing: -.025em; white-space: nowrap; transform: scaleX(.86); transform-origin: center;}
   .hero__subject--primary { right: -18vw; bottom: 0; width: 150vw; }
   .hero__subject--echo { display: none; }
-  .hero__copy {top: 50%; left: 20px; width: calc(100% - 40px); translate: 0 -50%;}
+  .hero__copy {top: 27%; left: 20px; width: calc(100% - 40px); translate: 0 -50%;}
   .kicker { max-width: 290px; margin-bottom: 18px; font-size: 7px; line-height: 1.65; }
   .hero__copy h1 { max-width: 94%; font-size: clamp(52px, 15.2vw, 76px); line-height: .83; }
   .hero__lede { max-width: 90%; margin-top: 20px; font-size: 15px; line-height: 1.45; }

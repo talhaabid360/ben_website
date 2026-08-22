@@ -353,7 +353,35 @@ mm.add("(min-width: 768px)", () => {
         <div>PHIL DARU&thinsp;·&thinsp;CAITLIN SINCLAIR&thinsp;·&thinsp;THE LOLLIS&thinsp;·&thinsp;OLIVIA AUDREY&thinsp;·&thinsp;DENIS &amp; MARIANNE BEAUSEJOUR&thinsp;·&thinsp;JOHN KIRIAKOU&thinsp;·&thinsp;DR. GINA LOUDON&thinsp;·&thinsp;</div>
         </div>
       </section>
+<section
+  className="guest-gallery"
+  id="gallery"
+  ref={galleryRef}
+  aria-labelledby="guest-gallery-title"
+>
+  <div className="guest-gallery__heading">
+    <p className="section-label">Faces of the archive</p>
+    <h2 id="guest-gallery-title">Guest Gallery</h2>
+  </div>
 
+  <div
+    className="guest-gallery__viewport"
+    data-overflow-allowed
+  >
+    <div className="guest-gallery__track">
+      {guestGallery.map((image, index) => (
+        <figure className="guest-gallery__frame" key={image}>
+          <img
+            src={image}
+            alt={`To My Sons and Daughters podcast guest gallery image ${index + 1}`}
+            loading={index < 2 ? "eager" : "lazy"}
+            decoding="async"
+          />
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>
       <section className="join" id="join">
         <div className="join__heading" data-reveal><p className="section-label">05 — Continue the Library</p><h2>Some conversations are meant to outlive us.</h2></div>
         <div className="join__grid">

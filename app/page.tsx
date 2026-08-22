@@ -22,6 +22,14 @@ const episodes: Episode[] = [
 ];
 
 const themes = ["All", "Purpose", "Culture", "Family", "Wellness", "Marriage", "Truth", "Faith"];
+const guestGallery = [
+  "/gallery/guest-01.jpg",
+  "/gallery/guest-02.jpg",
+  "/gallery/guest-03.jpg",
+  "/gallery/guest-04.jpg",
+  "/gallery/guest-05.jpg",
+  "/gallery/guest-06.jpg",
+];
 
 export default function Home() {
   const heroRef = useRef<HTMLElement>(null);

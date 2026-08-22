@@ -485,7 +485,15 @@ img { display: block; max-width: 100%; }
 .host__copy > p { max-width: 730px; color: rgba(0,0,0,.65); font: 400 18px/1.65 Georgia, serif; }
 .host__copy .text-link { margin-top: 18px; }
 .host blockquote { grid-column: 1/-1; max-width: 1250px; margin: 90px auto 0; font: 400 clamp(52px, 6.3vw, 120px)/.9 Georgia, serif; letter-spacing: -.06em; text-align: center; }
-
+@media (min-width: 768px) {
+  .host__media img {
+    inset: 0;
+    width: auto;
+    height: 100%;
+    margin: auto;
+    max-width: none;
+  }
+}
 .voices { padding: 130px 0; overflow: hidden; background: #050505; text-align: center; }
 .voices h2 { max-width: 1120px; margin: 0 auto 90px; padding: 0 22px; font: 400 clamp(64px, 7.4vw, 142px)/.82 Georgia, serif; letter-spacing: -.07em; text-transform: uppercase; }
 .marquee { display: flex; width: max-content; border-top: 1px solid var(--line-dark); border-bottom: 1px solid var(--line-dark); color: #EED46E; font: 400 clamp(52px, 6.7vw, 128px)/.92 Georgia, serif; white-space: nowrap; text-transform: uppercase; }

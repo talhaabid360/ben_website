@@ -487,11 +487,15 @@ img { display: block; max-width: 100%; }
 .host blockquote { grid-column: 1/-1; max-width: 1250px; margin: 90px auto 0; font: 400 clamp(52px, 6.3vw, 120px)/.9 Georgia, serif; letter-spacing: -.06em; text-align: center; }
 @media (min-width: 768px) {
   .host__media img {
-    inset: 0;
+    top: auto;
+    right: auto;
+    bottom: 0;
+    left: 50%;
     width: auto;
     height: 100%;
-    margin: auto;
+    margin: 0;
     max-width: none;
+    translate: -52% 0;
   }
 }
 .voices { padding: 130px 0; overflow: hidden; background: #050505; text-align: center; }

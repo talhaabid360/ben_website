@@ -102,7 +102,32 @@ export default function Home() {
             .fromTo(".hero__interlude", { clipPath: "inset(100% 0 0 0)" }, { clipPath: "inset(0% 0 0 0)", duration: 0.2 }, 0.8)
             .fromTo(".hero__interlude-copy", { y: 45, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.12, ease: "power2.out" }, 0.88);
         });
+mm.add("(min-width: 768px)", () => {
+  const section = galleryRef.current;
+  const viewport =
+    section?.querySelector<HTMLElement>(".guest-gallery__viewport");
+  const track =
+    section?.querySelector<HTMLElement>(".guest-gallery__track");
 
+  if (!section || !viewport || !track) return;
+
+  const travel = () =>
+    Math.max(0, track.scrollWidth - viewport.clientWidth);
+
+  gsap.to(track, {
+    transform: () => `translate3d(${-travel()}px, 0, 0)`,
+    ease: "none",
+    scrollTrigger: {
+      trigger: section,
+      start: "top top",
+      end: () => `+=${Math.max(window.innerWidth, travel())}`,
+      pin: true,
+      scrub: 1.1,
+      anticipatePin: 1,
+      invalidateOnRefresh: true,
+    },
+  });
+});      
         gsap.utils.toArray<HTMLElement>("[data-parallax]").forEach((element) => {
           const distance = Number(element.dataset.parallax ?? 8);
           gsap.fromTo(element, { yPercent: distance }, {

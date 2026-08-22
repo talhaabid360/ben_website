@@ -374,7 +374,8 @@ mm.add("(min-width: 768px)", () => {
           <img
             src={image}
             alt={`To My Sons and Daughters podcast guest gallery image ${index + 1}`}
-            loading={index < 2 ? "eager" : "lazy"}
+            loading="eager"
+            fetchPriority={index < 2 ? "high" : "low"}
             decoding="async"
           />
         </figure>

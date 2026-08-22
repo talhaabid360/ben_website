@@ -33,6 +33,7 @@ const guestGallery = [
 
 export default function Home() {
   const heroRef = useRef<HTMLElement>(null);
+  const galleryRef = useRef<HTMLElement>(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const [ready, setReady] = useState(false);
   const [activeTheme, setActiveTheme] = useState("All");

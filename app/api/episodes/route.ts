@@ -215,7 +215,7 @@ export async function GET() {
   } catch (error) {
     console.error(
       "YouTube episode sync failed:",
-      error instanceof Error ? error.message : "Unknown error",
+      error instanceof Error ? error.message: "Unknown error",
     );
 
     return NextResponse.json(
@@ -224,3 +224,5 @@ export async function GET() {
     );
   }
 }
+
+

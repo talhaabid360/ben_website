@@ -530,7 +530,6 @@ img { display: block; max-width: 100%; }
   }
 }
 
-@keyframes marquee { to { transform: translateX(-50%); } }
 .guest-gallery {
   --gallery-ratio: 7008 / 4672;
   --gallery-gutter: clamp(22px, 4.7vw, 90px);

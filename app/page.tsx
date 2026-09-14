@@ -258,7 +258,10 @@ mm.add("(min-width: 768px)", () => {
     latestEpisode.summary ||
     "Dr. Gina Loudon joins Ben Swann for a conversation on faith, adoption, homeschooling and protecting what is sacred.";
   const marqueeGuests = `${episodes
-    .map((episode) => episode.guest.toUpperCase())
+    .map((episode) => episode.guest.toLowerCase().includes("roethlingshoefer")
+        ? "JUSTIN ROETH"
+        : episode.guest.toUpperCase()
+    )
     .join("\u2009·\u2009")}\u2009·\u2009`;
 
   useEffect(() => {

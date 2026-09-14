@@ -517,7 +517,7 @@ img { display: block; max-width: 100%; }
 .marquee > div {
   flex: 0 0 auto;
   padding: 24px 0 28px;
-  animation: marquee 60s linear infinite;
+  animation: marquee 75s linear infinite;
 }
 
 @keyframes marquee {

@@ -3,15 +3,18 @@
 import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 
 type Episode = {
+  id?: string;
   number: string;
   guest: string;
   title: string;
   theme: string;
+  themes?: string[];
   image: string;
   url: string;
+  summary?: string;
 };
 
-const episodes: Episode[] = [
+const fallbackEpisodes: Episode[] = [
   { number: "01", guest: "Phil Daru", title: "From Fighting to Coaching Seven World Champions", theme: "Purpose", image: "/media/episodes/episode-01.webp", url: "https://www.youtube.com/watch?v=VoAk3qxwHpQ" },
   { number: "02", guest: "Caitlin Sinclair", title: "The Toxic Overload Ruining America", theme: "Culture", image: "/media/episodes/episode-02.webp", url: "https://www.youtube.com/watch?v=DKvJ8cqLeSE" },
   { number: "03", guest: "The Lollis", title: "The Truth About Parenting in Modern Society", theme: "Family", image: "/media/episodes/episode-03.webp", url: "https://www.youtube.com/watch?v=Q28jL8bfVeU" },
@@ -38,6 +41,10 @@ export default function Home() {
   const [ready, setReady] = useState(false);
   const [activeTheme, setActiveTheme] = useState("All");
   const [query, setQuery] = useState("");
+  const [episodes, setEpisodes] = useState<Episode[]>(() =>
+    [...fallbackEpisodes].reverse(),
+  );
+  const [visibleCount, setVisibleCount] = useState(6);
   const [newsletterSent, setNewsletterSent] = useState(false);
   const [guestSent, setGuestSent] = useState(false);
 
@@ -183,14 +190,94 @@ mm.add("(min-width: 768px)", () => {
   }, []);
 
 
+  useEffect(() => {
+    const controller = new AbortController();
+
+    const loadEpisodes = async () => {
+      try {
+        const response = await fetch("/api/episodes", {
+          signal: controller.signal,
+        });
+
+        if (!response.ok) {
+          throw new Error("Episode request failed");
+        }
+
+        const data = (await response.json()) as {
+          episodes?: Episode[];
+        };
+
+        if (data.episodes?.length) {
+          setEpisodes(data.episodes);
+          setVisibleCount(6);
+        }
+      } catch {
+        if (!controller.signal.aborted) {
+          console.error("The YouTube archive could not be refreshed.");
+        }
+      }
+    };
+
+    void loadEpisodes();
+
+    return () => controller.abort();
+  }, []);
+
+  useEffect(() => {
+    setVisibleCount(6);
+  }, [activeTheme, query]);
+
   const filteredEpisodes = useMemo(() => {
     const search = query.trim().toLowerCase();
+
     return episodes.filter((episode) => {
-      const matchesTheme = activeTheme === "All" || episode.theme === activeTheme;
-      const matchesSearch = !search || `${episode.guest} ${episode.title} ${episode.theme}`.toLowerCase().includes(search);
+      const episodeThemes = episode.themes?.length
+        ? episode.themes
+        : [episode.theme];
+
+      const matchesTheme =
+        activeTheme === "All" || episodeThemes.includes(activeTheme);
+
+      const matchesSearch =
+        !search ||
+        `${episode.guest} ${episode.title} ${episodeThemes.join(" ")}`
+          .toLowerCase()
+          .includes(search);
+
       return matchesTheme && matchesSearch;
     });
-  }, [activeTheme, query]);
+  }, [activeTheme, episodes, query]);
+
+  const visibleEpisodes = filteredEpisodes.slice(0, visibleCount);
+  const latestEpisode =
+    episodes[0] ?? fallbackEpisodes[fallbackEpisodes.length - 1];
+  const latestThemes = latestEpisode.themes?.length
+    ? latestEpisode.themes
+    : [latestEpisode.theme];
+  const latestSummary =
+    latestEpisode.summary ||
+    "Dr. Gina Loudon joins Ben Swann for a conversation on faith, adoption, homeschooling and protecting what is sacred.";
+  const marqueeGuests = `${episodes
+    .map((episode) => episode.guest.toUpperCase())
+    .join("\u2009·\u2009")}\u2009·\u2009`;
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) =>
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+          }
+        }),
+      { threshold: 0.12 },
+    );
+
+    document
+      .querySelectorAll(".episode-card[data-reveal]:not(.is-visible)")
+      .forEach((element) => observer.observe(element));
+
+    return () => observer.disconnect();
+  }, [episodes, visibleCount, activeTheme, query]);
 
   const handleNewsletter = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -289,24 +376,24 @@ mm.add("(min-width: 768px)", () => {
       </section>
 
       <section className="featured" aria-labelledby="featured-title">
-        <a className="featured__visual" href={episodes[6].url} target="_blank" rel="noreferrer" aria-label={`Watch ${episodes[6].title} on YouTube`}>
-          <div className="featured__image" data-parallax="5"><img src={episodes[6].image} alt={`Ben Swann with ${episodes[6].guest}`} /></div>
+        <a className="featured__visual" href={latestEpisode.url} target="_blank" rel="noreferrer" aria-label={`Watch ${latestEpisode.title} on YouTube`}>
+          <div className="featured__image" data-parallax="5"><img src={latestEpisode.image} alt={`Ben Swann with ${latestEpisode.guest}`} /></div>
           <span className="play">Play</span>
-          <span className="featured__entry">Latest entry · 07</span>
+          <span className="featured__entry">Latest entry · {latestEpisode.number}</span>
         </a>
         <div className="featured__copy" data-reveal>
           <p className="section-label">New in the archive</p>
-          <h2 id="featured-title">The spiritual battle for our children, families and future.</h2>
-          <p>Dr. Gina Loudon joins Ben Swann for a conversation on faith, adoption, homeschooling and protecting what is sacred.</p>
-          <div className="featured__meta"><span>Dr. Gina Loudon</span><span>Faith · Family · Future</span></div>
-          <a className="button button--outline" href={episodes[6].url} target="_blank" rel="noreferrer">Watch the conversation ↗</a>
+          <h2 id="featured-title">{latestEpisode.title}</h2>
+          <p>{latestSummary}</p>
+          <div className="featured__meta"><span>{latestEpisode.guest}</span><span>{latestThemes.slice(0, 3).join(" · ")}</span></div>
+          <a className="button button--outline" href={latestEpisode.url} target="_blank" rel="noreferrer">Watch the conversation ↗</a>
         </div>
       </section>
 
       <section className="archive" id="archive">
         <div className="archive__heading" data-reveal>
           <div><p className="section-label">02 — The Living Library</p><h2>Join the<br />conversation.</h2></div>
-          <p>Seven entries. Seven lives. One growing archive of ideas worth carrying forward.</p>
+          <p>{episodes.length} entries. {episodes.length} lives. One growing archive of ideas worth carrying forward.</p>
         </div>
 
         <div className="archive__tools">
@@ -317,8 +404,8 @@ mm.add("(min-width: 768px)", () => {
         </div>
 
         <div className="episode-grid">
-          {filteredEpisodes.map((episode) => (
-            <article className="episode-card" key={episode.number} data-reveal>
+          {visibleEpisodes.map((episode) => (
+            <article className="episode-card" key={episode.id ?? episode.url} data-reveal>
               <a href={episode.url} target="_blank" rel="noreferrer">
                 <div className="episode-card__image"><img src={episode.image} alt={`${episode.guest} on To My Sons and Daughters`} /><span>Entry {episode.number}</span><i>Watch ↗</i></div>
                 <div className="episode-card__copy"><span>{episode.theme}</span><div><h3>{episode.title}</h3><p>With {episode.guest}</p></div></div>
@@ -326,6 +413,11 @@ mm.add("(min-width: 768px)", () => {
             </article>
           ))}
         </div>
+        {visibleEpisodes.length < filteredEpisodes.length && (
+          <div style={{ display: "flex", justifyContent: "center", marginTop: "60px" }}>
+            <button className="button button--outline" type="button" onClick={() => setVisibleCount((count) => count + 6)}>Load more</button>
+          </div>
+        )}
         {filteredEpisodes.length === 0 && <p className="empty">No entry matches that search. Try another name or theme.</p>}
       </section>
 
@@ -349,8 +441,8 @@ mm.add("(min-width: 768px)", () => {
         <p className="section-label">04 — Voices in the Archive</p>
         <h2 id="voices-title" data-reveal>People who have<br />lived the lesson.</h2>
         <div className="marquee" aria-hidden="true">
-        <div>PHIL DARU&thinsp;·&thinsp;CAITLIN SINCLAIR&thinsp;·&thinsp;THE LOLLIS&thinsp;·&thinsp;OLIVIA AUDREY&thinsp;·&thinsp;DENIS &amp; MARIANNE BEAUSEJOUR&thinsp;·&thinsp;JOHN KIRIAKOU&thinsp;·&thinsp;DR. GINA LOUDON&thinsp;·&thinsp;</div>
-        <div>PHIL DARU&thinsp;·&thinsp;CAITLIN SINCLAIR&thinsp;·&thinsp;THE LOLLIS&thinsp;·&thinsp;OLIVIA AUDREY&thinsp;·&thinsp;DENIS &amp; MARIANNE BEAUSEJOUR&thinsp;·&thinsp;JOHN KIRIAKOU&thinsp;·&thinsp;DR. GINA LOUDON&thinsp;·&thinsp;</div>
+        <div>{marqueeGuests}</div>
+        <div>{marqueeGuests}</div>
         </div>
       </section>
 <section

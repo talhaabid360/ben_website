@@ -427,7 +427,7 @@ mm.add("(min-width: 768px)", () => {
       <section className="host" id="host">
         <div className="host__media" data-reveal>
           <div className="host__halo" aria-hidden="true" />
-          <img src="/media/benfotter.png" alt="Ben Swann, host of To My Sons and Daughters" data-parallax="4" />
+          <img src="/media/benfotter.png" alt="Ben Swann, host of To My Sons and Daughters" data-parallax="4" loading="eager" fetchPriority="high" />
           <span><strong>20+</strong> Years pursuing truth</span>
         </div>
         <div className="host__copy" data-reveal>

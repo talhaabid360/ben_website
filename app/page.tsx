@@ -441,10 +441,12 @@ mm.add("(min-width: 768px)", () => {
         <p className="section-label">04 — Voices in the Archive</p>
         <h2 id="voices-title" data-reveal>People who have<br />lived the lesson.</h2>
         <div className="marquee" aria-hidden="true">
-        <div>{marqueeGuests}</div>
-        <div>{marqueeGuests}</div>
+          <div className="marquee__track">
+            <span>{marqueeGuests}</span>
+            <span>{marqueeGuests}</span>
         </div>
-      </section>
+      </div>
+    </section>
 <section
   className="guest-gallery"
   id="gallery"

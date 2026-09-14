@@ -504,8 +504,9 @@ img { display: block; max-width: 100%; }
 .marquee div { padding: 24px 0 28px; animation: marquee 88s linear infinite; } */
 
 .marquee {
-  display: flex;
-  width: max-content;
+  display: block;
+  width: 100%;
+  overflow: hidden;
   border-top: 1px solid var(--line-dark);
   border-bottom: 1px solid var(--line-dark);
   color: #EED46E;
@@ -514,10 +515,15 @@ img { display: block; max-width: 100%; }
   text-transform: uppercase;
 }
 
-.marquee > div {
-  flex: 0 0 auto;
+.marquee__track {
+  display: flex;
+  width: max-content;
   padding: 24px 0 28px;
   animation: marquee 75s linear infinite;
+}
+
+.marquee__track span {
+  flex: 0 0 auto;
 }
 
 @keyframes marquee {
@@ -526,7 +532,7 @@ img { display: block; max-width: 100%; }
   }
 
   to {
-    transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
